@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Transportation Map</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.32/esri/themes/light/main.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/charts-components/4.32/arcgis-charts-components.css"/>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://js.arcgis.com/charts-components/4.32/arcgis-charts-components.esm.js"></script>
+    <script src="https://js.arcgis.com/4.32/"></script>
+</head>
+<body>
+  <header>
+        <h1>Modes of Transportation to Work by U.S. State (2023)</h1>
+  </header>
+
+  <div class="barChartDiv"></div>
+  <div id="viewDiv"></div>
+  <div id="layerListDiv"></div>
+  <div id="legendDiv"></div>
+
+  <footer>
+    <div id="sources">
+        <h2>Sources</h2>
+        <p>U.S. Census Bureau, 2023 American Community Survey 1-Year Estimates - C08541 Table</p>
+    </div>
+  </footer>
+
+  <!-- Include separate scripts -->
+  <script>
+    require([
+      "esri/WebMap",
+      "esri/views/MapView",
+      "esri/widgets/LayerList",
+      "esri/widgets/Legend",
+      "esri/widgets/Home"
+    ], function(WebMap, MapView, LayerList, Legend, Home) {
+
+      const webmap = new WebMap({
+          portalItem: {
+              id: "24c058628aaa4422a3e9b42e464d0b3b"
+          }
+      });
+
+      const view = new MapView({
+          container: "viewDiv",
+          map: webmap
+      });
+
+      const layerList = new LayerList({
+          view: view
+      });
+      view.ui.add(layerList, "top-right");
+
+      const legend = new Legend({
+          view: view
+      });
+      view.ui.add(legend, "bottom-left");
+
+      const homeBtn = new Home({
+          view: view
+      });
+      view.ui.add(homeBtn, "top-left");
+    });
+  </script>
+
+  <script>
+    require([
+      "esri/widgets/Chart"
+    ], function(Chart) {
+
+      const arcgisChart = new Chart({
+          portalItem: {
+              id: "24c058628aaa4422a3e9b42e464d0b3b"
+          }
+      });
+    });
+  </script>
+</body>
+</html>

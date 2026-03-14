@@ -1,0 +1,61 @@
+html, 
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+  }
+
+#wrapper {
+    display: flex;
+    height: 100%; 
+} 
+
+header {
+    background-color: #34495e;
+    color: rgb(219, 218, 218);
+    padding: 2rem;
+    width: 100%;
+    text-align: center;
+  }
+  
+header h1 {
+    margin: 0;
+    font-size: 28px;
+  }
+  
+footer {
+    background-color: #34495e;
+    color: rgb(219, 218, 218);
+    padding: 0.25rem;
+    width: 100%;
+    text-align: center;
+  }
+
+h2 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+p {
+    font-size: 16px;
+  }
+
+#viewDiv {
+    width: 100%;
+    height: 79%;
+  }
+
+#layerListDiv {
+    background-color:rgb(219, 218, 218);
+  } 
+
+#barchart {
+    width: 100%;
+    margin: auto;
+    background-color:rgb(219, 218, 218);
+}
+
+    
